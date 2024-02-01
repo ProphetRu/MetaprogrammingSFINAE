@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  generate-documentation:
+  generate_documentation:
     runs-on: ubuntu-latest
     permissions: write-all
     steps:
