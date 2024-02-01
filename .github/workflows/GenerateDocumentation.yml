@@ -1,0 +1,30 @@
+name: Generate Documentation
+
+on:
+  workflow_dispatch:
+
+jobs:
+  generate-documentation:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - name: Install dependecies
+        run: sudo apt-get update && sudo apt-get install cmake -y
+      - name: Get repository code
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+    - name: Build the HTML documentation
+      uses: mattnotmitt/doxygen-action@v1.1.0
+      with:
+          doxyfile-path: ./Doxyfile
+          working-directory: .
+    - name: Deploy the HTML documentation to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./doc/html/
+        enable_jekyll: false
+        allow_empty_commit: false
+        force_orphan: true
+        publish_branch: gh-pages
