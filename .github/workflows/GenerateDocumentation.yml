@@ -9,12 +9,12 @@ jobs:
     permissions: write-all
     steps:
       - name: Install dependecies
-        run: sudo apt-get update && sudo apt-get install cmake doxygen -y
+        run: sudo apt-get update && sudo apt-get install cmake -y
       - name: Get repository code
         uses: actions/checkout@v3
         with:
           submodules: true
-      - name: Build the HTML documentation
+      - name: Generate the HTML documentation
         uses: mattnotmitt/doxygen-action@v1.1.0
         with:
           doxyfile-path: ./Doxyfile
