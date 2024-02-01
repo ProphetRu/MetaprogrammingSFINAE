@@ -1,5 +1,5 @@
 # Metaprogramming SFINAE
-Educational project with Doxygen
+Educational project with [Doxygen](https://github.com/doxygen/doxygen)
 
 ## Build local Linux
 ```shell
@@ -27,3 +27,6 @@ cmake ..
 # build release
 cmake --build . --config Release
 ```
+
+## Documentation
+[Documentation](https://prophetru.github.io/MetaprogrammingSFINAE)

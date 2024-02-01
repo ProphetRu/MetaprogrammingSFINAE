@@ -9,7 +9,7 @@ jobs:
     permissions: write-all
     steps:
       - name: Install dependecies
-        run: sudo apt-get update && sudo apt-get install cmake -y
+        run: sudo apt-get update && sudo apt-get install cmake doxygen -y
       - name: Get repository code
         uses: actions/checkout@v3
         with:
